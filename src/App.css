@@ -1,42 +1,373 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  overflow: hidden;
+
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+.container {
+  width: 12em;
+  height: 12em;
+  position: relative;
+  background: #0588e4 url(bg.png);
+  background-size: cover;
+  box-shadow: inset 0 0 3em;
+  border-radius: 50%;
+  transition: all .5s ease;
+  animation: earth 20s linear infinite;
+  z-index: 2;
+
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes earth {
+  0% {
+    background-position: 0 0;
+    transform: translateX(70em);
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    background-position: 80em 0;
+    transform: translateX(-30em);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+
+
+
+.starlight i {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 30px #fff,
+    0 0 40px #fff;
+
+  animation: star_animation 2s linear infinite;
+}
+
+
+@keyframes animate {
+  0% {
+    transform: translateY(-2px);
+  }
+
+  100% {
+    transform: translateY(-2px);
+  }
+
+  50% {
+    transform: translateY(2px);
   }
 }
 
-.card {
-  padding: 2em;
+
+
+.rocket1 {
+  position: relative;
+  animation: animate 0.2s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: 10em;
+
+  animation: rocket_move 20s infinite;
 }
 
-.read-the-docs {
-  color: #888;
+.rocket1::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: 2.73em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(144, 255, 252), transparent);
+  transform: translateY(-50%) rotate(90deg);
+}
+
+
+
+
+
+.rocket2 {
+  position: relative;
+  animation: animate 0.9s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: -20em;
+
+  animation: rocket_move 10s infinite;
+}
+
+.rocket2::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: 2.73em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(252, 8, 8), transparent);
+  transform: translateY(-50%) rotate(90deg);
+}
+
+
+
+
+.rocket3 {
+  position: relative;
+  animation: animate 0.6s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: -4em;
+
+  animation: rocket_move 15s infinite;
+}
+
+.rocket3::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: 2.73em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(154, 30, 255), transparent);
+  transform: translateY(-50%) rotate(90deg);
+}
+
+
+
+.rocket4 {
+  position: relative;
+  animation: animate 0.12s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: 0em;
+
+  animation: rocket_move2 7s infinite;
+}
+
+.rocket4::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: -1.50em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(255, 251, 0), transparent);
+  transform: translateY(-50%) rotate(270deg);
+}
+
+
+
+.rocket5 {
+  position: relative;
+  animation: animate 0.1s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: -12em;
+
+  animation: rocket_move2 8s infinite;
+}
+
+.rocket5::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: -1.50em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(255, 185, 249), transparent);
+  transform: translateY(-50%) rotate(270deg);
+}
+
+
+.rocket6 {
+  position: relative;
+  animation: animate 0.6s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: -4em;
+
+  animation: rocket_move2 15s infinite;
+}
+
+.rocket6::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: -1.50em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(255, 174, 108), transparent);
+  transform: translateY(-50%) rotate(270deg);
+}
+
+
+
+.rocket7 {
+  position: relative;
+  animation: animate 0.3s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: -4em;
+
+  animation: rocket_move2 9s infinite;
+}
+
+.rocket7::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: -1.50em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(19, 255, 19), transparent);
+  transform: translateY(-50%) rotate(270deg);
+}
+
+
+
+.rocket8 {
+  position: relative;
+  animation: animate 0.7s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: 9em;
+
+  animation: rocket_move2 12s infinite;
+}
+
+.rocket8::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: -1.50em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(121, 157, 255), transparent);
+  transform: translateY(-50%) rotate(270deg);
+}
+
+
+.rocket9 {
+  position: relative;
+  animation: animate 0.4s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: 15em;
+
+  animation: rocket_move2 8s infinite;
+}
+
+.rocket9::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: -1.50em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(255, 0, 255), transparent);
+  transform: translateY(-50%) rotate(270deg);
+}
+
+
+.rocket10 {
+  position: relative;
+  animation: animate 0.2s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: 15em;
+
+  animation: rocket_move 13s infinite;
+}
+
+.rocket10::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: 2.73em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(144, 255, 252), transparent);
+  transform: translateY(-50%) rotate(90deg);
+}
+
+
+
+
+
+.rocket11 {
+  position: relative;
+  animation: animate 0.2s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: 0em;
+
+  animation: rocket_move 6s infinite;
+}
+
+.rocket11::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: 2.73em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(252, 8, 8), transparent);
+  transform: translateY(-50%) rotate(90deg);
+}
+
+
+
+
+.rocket12 {
+  position: relative;
+  animation: animate 0.3s ease infinite;
+  color: #fff;
+  font-size: 4em;
+  bottom: -11em;
+
+  animation: rocket_move 9s infinite;
+}
+
+.rocket12::before {
+  content: '';
+  position: absolute;
+  bottom: -2.5em;
+  right: 2.73em;
+  width: 10px;
+  height: 200px;
+  background: linear-gradient(rgb(154, 30, 255), transparent);
+  transform: translateY(-50%) rotate(90deg);
+}
+
+
+
+
+
+
+
+
+@keyframes rocket_move {
+  0% {
+    transform: translateX(-15em);
+  }
+
+  100% {
+    transform: translateX(20em);
+  }
+}
+
+
+@keyframes rocket_move2 {
+  100% {
+    transform: translateX(-20em);
+  }
+
+  0% {
+    transform: translateX(20em);
+  }
 }
