@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 export default function Naves() {
     const json_naves = [
         { "id": 1, "emoji": "🛸" },
