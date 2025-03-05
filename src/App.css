@@ -1,12 +1,17 @@
-/*
+html, body {  
+  overflow: hidden; /* Esto elimina el scroll en ambas direcciones */
+}
 .bodyxxx {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
+  background-color: black;
   overflow: hidden;
+  overflow: hidden; /* Esto oculta cualquier desplazamiento */
+  position: relative; /* Asegura que el contenedor no se vea afectado por el zoom */
 }
+
 
 .starlight i {
   position: absolute;
@@ -341,4 +346,3 @@
     transform: translateX(20em);
   }
 }
-*/

@@ -6,7 +6,7 @@ function Title() {
     return (
         <>
             <div className='containerx'>
-                
+                                
                 <Logx></Logx>                
                        
             </div>

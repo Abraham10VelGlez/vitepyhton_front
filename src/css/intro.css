@@ -4,12 +4,12 @@
     /*background-color: #00c500d3;*/
     font-size: 25px;
     /*color: rgb(255, 255, 255);*/
-    width: 500px;
-    height: 400px;
+    
     justify-content: center;
     align-items: center;    
     position: absolute;
-    top: 35%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1000;
 }
