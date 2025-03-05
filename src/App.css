@@ -1,16 +1,12 @@
-body {
+
+.bodyxxx {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background: black;
   overflow: hidden;
-  
 }
-
-
-
-
 
 .starlight i {
   position: absolute;
@@ -345,3 +341,5 @@ body {
     transform: translateX(20em);
   }
 }
+
+*/
