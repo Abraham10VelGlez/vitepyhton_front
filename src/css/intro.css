@@ -1,9 +1,9 @@
 .containerx {
     
-    font-family: 'Courier New', Courier, monospace;
+    
     /*background-color: #00c500d3;*/
-    font-size: 30px;
-    color: rgb(255, 255, 255);
+    font-size: 25px;
+    /*color: rgb(255, 255, 255);*/
     width: 500px;
     height: 400px;
     justify-content: center;
