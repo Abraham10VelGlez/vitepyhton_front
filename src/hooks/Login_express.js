@@ -35,7 +35,7 @@ export default function Login_express() {
             setData(true);
             const apiUrl = import.meta.env.VITE_URL_BACKEND_EXPRESSJS_API
             try {
-                const response = await axios.post(                   
+                const response = await axios.post(
                     `${apiUrl}logxespecial`,
                     { values },
                     {
@@ -46,18 +46,20 @@ export default function Login_express() {
                     }
                 );
                 // Simular un delay de 3 segundos antes de procesar la respuesta
-                // console.log(response.data.ok)
-                await new Promise(() =>
+                // console.log(response.data.ok)               
+                await new Promise(resolve => {
                     setTimeout(() => {
                         if (response.data.ok) {
-                            //alert("Chico Python, Bienvenido")
+                            resolve(true);
                             beginsession_newcode(response)
                         } else {
+                            resolve(true);
                             setData(false);
                             alert("El Chico Python no existe");
                         }
-                    }, 3000)
-                );
+                    }, 3000);
+                });
+
             } catch {
                 setData(false);
                 console.error("Error en la autenticación del usuario")
