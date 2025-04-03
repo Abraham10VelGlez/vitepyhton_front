@@ -2,7 +2,7 @@ import React from 'react';
 import Login_express from '../hooks/Login_express';
 // import Login from '../hooks/Login';
 
-function Formx() {
+function Formx_express() {
     // const { formik_validatelogon, loaddatax } = Login();
     const { formik_validatelogon, loaddatax } = Login_express();
 
@@ -12,32 +12,32 @@ function Formx() {
                 <label htmlFor="email" className="fieldset-label">Email</label>
                 <input
                     id="email"
-                    name="u"
+                    name="userrname"
                     type="email"
                     className="input"
                     placeholder="Email"
                     value={formik_validatelogon.values.u}
                     onChange={formik_validatelogon.handleChange}
                 />
-                {formik_validatelogon.touched.u && formik_validatelogon.errors.u && (
+                {formik_validatelogon.touched.userrname && formik_validatelogon.errors.userrname && (
                     <div role="alert" aria-live="polite" className="alert alert-error alert-dash">
-                        <span>{formik_validatelogon.errors.u}</span>
+                        <span>{formik_validatelogon.errors.userrname}</span>
                     </div>
                 )}
 
                 <label htmlFor="password" className="fieldset-label">Password</label>
                 <input
                     id="password"
-                    name="p"
+                    name="passwordd"
                     type="password"
                     className="input"
                     placeholder="Password"
-                    value={formik_validatelogon.values.p}
+                    value={formik_validatelogon.values.passwordd}
                     onChange={formik_validatelogon.handleChange}
                 />
-                {formik_validatelogon.touched.p && formik_validatelogon.errors.p && (
+                {formik_validatelogon.touched.passwordd && formik_validatelogon.errors.passwordd && (
                     <div role="alert" aria-live="polite" className="alert alert-error alert-dash">
-                        <span>{formik_validatelogon.errors.p}</span>
+                        <span>{formik_validatelogon.errors.passwordd}</span>
                     </div>
                 )}
 
@@ -53,4 +53,4 @@ function Formx() {
     );
 }
 
-export default Formx;
+export default Formx_express;

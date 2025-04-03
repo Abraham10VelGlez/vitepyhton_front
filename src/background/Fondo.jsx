@@ -11,10 +11,10 @@ function Fondo() {
 
       <div className="hero ">
         <div className="hero-content text-center">
-          <div className="max-w-md">            
-            <Starts></Starts>
+          <div className="max-w-md">
+
             <Title></Title>
-            <Naves></Naves>                                  
+
           </div>
         </div>
       </div>

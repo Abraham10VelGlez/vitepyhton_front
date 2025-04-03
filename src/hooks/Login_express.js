@@ -1,25 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import * as yup from "yup";
 import axios from "axios";
 import { useFormik } from "formik";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-export default function Login() {
+export default function Login_express() {
     const navigate = useNavigate();
     //const { user, setUser, clearUser } = useContext(UsersContext);
     // Estado para manejar la carga
     const [loaddatax, setData] = useState(false);
     // Definir el esquema de validación con Yup
     const validationSchema = yup.object({
-        u: yup
-            .string()
-            .matches(
-                /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i,
-                "Solo se permiten letras, números, guiones y guiones bajos"
-            )
-            .required("El correo electrónico, es obligatio"),
-        p: yup
-            .string()
+        userrname: yup.string()
+            .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i, 'Solo se permiten letras, números, guiones y guiones bajos')
+            .required('El correo electrónico, es obligatio'),
+        passwordd: yup.string()
             .matches(
                 /^(?=(?:[^A-Z]*[A-Z]){1})(?=(?:[^$]*[$]){1})[a-zA-Z0-9$]{9}$/,
                 "La contraseña debe contener exactamente 9 caracteres: 7 letras o números, 1 mayúscula y 1 signo '$'"
@@ -31,18 +26,17 @@ export default function Login() {
     // Formik para manejar el formulario
     const formik_validatelogon = useFormik({
         initialValues: {
-            u: "",
-            p: "",
+            userrname: "",
+            passwordd: "",
         },
         validationSchema,
         onSubmit: async (values) => {
-            //console.log('Enviando formulario:', values);
+            // console.log('Enviando formulario:', values);
             setData(true);
-            const apiUrl = import.meta.env.VITE_URL_APIPYTHON
+            const apiUrl = import.meta.env.VITE_URL_BACKEND_EXPRESSJS_API
             try {
-                const response = await axios.post(
-                    //`${apiUrl}Loginnext`,
-                    `${apiUrl}logsession`,
+                const response = await axios.post(                   
+                    `${apiUrl}logxespecial`,
                     { values },
                     {
                         headers: {
@@ -52,11 +46,10 @@ export default function Login() {
                     }
                 );
                 // Simular un delay de 3 segundos antes de procesar la respuesta
+                // console.log(response.data.ok)
                 await new Promise(() =>
                     setTimeout(() => {
-                        //console.log(response.data.url)                        
-                        if (response.data.token) {
-                            //console.log("ESTE USUARIO NO EXISTE EN SISTEMA");
+                        if (response.data.ok) {
                             //alert("Chico Python, Bienvenido")
                             beginsession_newcode(response)
                         } else {
@@ -65,24 +58,18 @@ export default function Login() {
                         }
                     }, 3000)
                 );
-            } catch (error) {
-                //console.error("Error en la autenticación:", error);                
-                if (error.response.data.error == 0) {
-                    alert("Chico Python no encontrado en el BD RAILWAY")
-                } else {
-                    alert("Faltan información por mandar al Servidor")
-                }
+            } catch {
                 setData(false);
+                console.error("Error en la autenticación del usuario")
             }
         },
     });
     const beginsession_newcode = (json) => {
-        Cookies.set('jwt_avg', json.data.token, { expires: 1 }); // expira en 1 día        
-        sessionStorage.setItem('jwt_avg', json.data.token); // almacenar en sesion        
         setData(false);
-        console.log(json.data.url);        
-        navigate(json.data.url, { replace: true });
-
+        // Cookies.set('jwt_avg', json.data.tokenx, { expires: 1 }); // expira en 1 día        
+        Cookies.set('jwt_avg', json.data.tokenx, { expires: 25 / (24 * 60) }); //25min
+        sessionStorage.setItem('jwt_avg', json.data.tokenx); // almacenar en sesion                        
+        navigate('/pythonavg', { replace: true });
     };
     return {
         formik_validatelogon,

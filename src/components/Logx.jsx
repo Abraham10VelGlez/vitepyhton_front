@@ -1,7 +1,8 @@
 import React from 'react';
 import '../css/intro.css'
 import Spinneravg from './Spinneravg';
-import Formx from './Formx';
+// import Formx from './Formx';
+import Formx_express from './Formx_express';
 function Logx() {
     return (
         <>
@@ -34,7 +35,7 @@ function Logx() {
                         <div className="card rounded-box grid grow place-items-center">
                             <div className="card bg-base-300">
                                 <div className="card-body">
-                                    <Formx></Formx>
+                                    <Formx_express></Formx_express>
                                 </div>
                             </div>
                         </div>
