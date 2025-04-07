@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { useAuth } from '../route/context/UsersContext';
 
 export default function Inicio() {
-
+    const { logoutss } = useAuth();
     const navigate = useNavigate();
     const close = async () => {
 
@@ -19,8 +20,9 @@ export default function Inicio() {
                 credentials: 'include' // Equivalente a withCredentials: true
             });
             // Limpiar el session
-            sessionStorage.removeItem('jwt_avg');
-            Cookies.remove('jwt_avg'); // Asegúrate de eliminar la cookie si no es válida        
+            // sessionStorage.removeItem('jwt_avg');
+            // Cookies.remove('jwt_avg'); // Asegúrate de eliminar la cookie si no es válida        
+            logoutss()
             // Redirigir a la página de inicio de sesión
             navigate('/', { replace: true });
         } catch (error) {

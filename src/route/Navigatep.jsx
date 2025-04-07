@@ -12,7 +12,7 @@ export default function Navigatep() {
             <Route path="/" index element={<Fondo />} />
             <Route path="/wolrd" element={<Home />} />
 
-            <Route element={<Protector_ isAllowed={Cookies.get('jwt_avg')} />}>
+            <Route element={<Protector_ />}>
                 {/* SIGUIENTE PASO ES ENCAPSULAR LA APP PARA QUE SI DETECTA CAMBIOS ESTA REDIRIGA AL INICIO DE SESSION O SI NO  QUE DESLOGEE AL USUARIO*/}
                 <Route path='/pythonavg' element={<Inicio />} />
                 <Route path='/pythoniza' element={<Session_tempral />} />

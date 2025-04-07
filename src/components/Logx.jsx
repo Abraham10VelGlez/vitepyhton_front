@@ -3,7 +3,10 @@ import '../css/intro.css'
 import Spinneravg from './Spinneravg';
 // import Formx from './Formx';
 import Formx_express from './Formx_express';
+import { Test_conexion_expressjs_servidor } from '../hooks/Test_conexion_expressjs_servidor';
 function Logx() {
+    // Test_conexion_expressjs_servidor()
+
     return (
         <>
             <div className="flex w-full flex-col">

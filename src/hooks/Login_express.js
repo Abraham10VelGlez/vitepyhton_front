@@ -4,7 +4,10 @@ import axios from "axios";
 import { useFormik } from "formik";
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import { useAuth } from "../route/context/UsersContext";
 export default function Login_express() {
+    //usamos el contexto desde el login 
+    const { loginss } = useAuth();
     const navigate = useNavigate();
     //const { user, setUser, clearUser } = useContext(UsersContext);
     // Estado para manejar la carga
@@ -46,19 +49,20 @@ export default function Login_express() {
                     }
                 );
                 // Simular un delay de 3 segundos antes de procesar la respuesta
-                // console.log(response.data.ok)               
-                await new Promise(resolve => {
-                    setTimeout(() => {
-                        if (response.data.ok) {
-                            resolve(true);
-                            beginsession_newcode(response)
-                        } else {
-                            resolve(true);
-                            setData(false);
-                            alert("El Chico Python no existe");
-                        }
-                    }, 3000);
-                });
+                //  console.log(response.data.ok)               
+                // console.log("funciona");
+                setTimeout(() => {
+                    if (response.data.ok) {
+
+                        beginsession_newcode(response)                      
+
+                    } else {
+
+                        setData(false);
+                        alert("El Chico Python no existe");
+                    }
+                }, 3000);
+
 
             } catch {
                 setData(false);
@@ -67,10 +71,10 @@ export default function Login_express() {
         },
     });
     const beginsession_newcode = (json) => {
+        // console.log(json.data.tokenx);
         setData(false);
-        // Cookies.set('jwt_avg', json.data.tokenx, { expires: 1 }); // expira en 1 día        
-        Cookies.set('jwt_avg', json.data.tokenx, { expires: 25 / (24 * 60) }); //25min
-        sessionStorage.setItem('jwt_avg', json.data.tokenx); // almacenar en sesion                        
+        // Cookies.set('jwt_avg', json.data.tokenx, { expires: 1 }); // expira en 1 día
+        loginss(json.data.tokenx)        
         navigate('/pythonavg', { replace: true });
     };
     return {
