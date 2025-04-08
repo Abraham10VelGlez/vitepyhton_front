@@ -3,8 +3,8 @@ import Login_express from '../hooks/Login_express';
 // import Login from '../hooks/Login';
 
 function Formx_express() {
-    // const { formik_validatelogon, loaddatax } = Login();
-    const { formik_validatelogon, loaddatax } = Login_express();
+    // const { formik_validatelogon, loaddatax } = Login(); //// API DE PYTHON 
+    const { formik_validatelogon, loaddatax } = Login_express(); // API DE EXPRESSJS
 
     return (
         <form onSubmit={formik_validatelogon.handleSubmit}>

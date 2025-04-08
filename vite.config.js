@@ -10,13 +10,13 @@ export default defineConfig({
     },//configuraciones para desarrollo en docker-compose.yml
     host: '0.0.0.0',//configuraciones para desarrollo en docker-compose.yml
     port: 5175,//configuraciones para desarrollo en docker-compose.yml
-    /*proxy: {
+    proxy: {
       '/apiuser': {
         target: 'https://almacen_igecem.edomex.gob.mx',
         changeOrigin: true,
         secure: false,
         rewrite: path => path.replace(/^\/apiuser/, '/apiuser')
       }
-    }*/
+    }
   },//configuraciones para desarrollo en docker-compose.yml
 })

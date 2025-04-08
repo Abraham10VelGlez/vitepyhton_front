@@ -31,23 +31,41 @@ export const Test_conexion_expressjs_servidor = () => {
         const validation_server_post = async () => {
 
             try {
-                const apiUrl = import.meta.env.VITE_URL_BACKEND_EXPRESSJS_API_SERVER
-                // Llamar a la API para eliminar la sesión
-                // const token = sessionStorage.getItem('jwt_avg') || Cookies.get('jwt_avg') || null;
-                // const aaaa = await fetch(`${apiUrl}login`, {
-                const aaaa = await fetch(`https://almacen_igecem.edomex.gob.mx/login`, {
-                    method: "POST",
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    credentials: 'include' // Equivalente a withCredentials: true
-                });
-                console.log(aaaa);
-
-
+                const apiUrl = import.meta.env.VITE_URL_BACKEND_EXPRESSJS_API_SERVER;
+                const response = await axios.post(`${apiUrl}login`,
+                    { username: 'user', password: 'pass' }, // esto depende de tu API
+                    {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        withCredentials: true
+                    }
+                );
+                console.log(response);
+                setjwt(true);
             } catch (error) {
-                console.error("Error al cerrar sesión", error);
+                console.error('Error fetching data:', error);
+                console.log([{ message: "error de validacion" }]);
             }
+
+            // try {
+            //     const apiUrl = import.meta.env.VITE_URL_BACKEND_EXPRESSJS_API_SERVER
+            //     // Llamar a la API para eliminar la sesión
+            //     // const token = sessionStorage.getItem('jwt_avg') || Cookies.get('jwt_avg') || null;
+            //     // const aaaa = await fetch(`${apiUrl}login`, {
+            //     const aaaa = await fetch(`https://almacen_igecem.edomex.gob.mx/login`, {
+            //         method: "POST",
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         },
+            //         credentials: 'include' // Equivalente a withCredentials: true
+            //     });
+            //     console.log(aaaa);
+
+
+            // } catch (error) {
+            //     console.error("Error al cerrar sesión", error);
+            // }
 
 
         }
