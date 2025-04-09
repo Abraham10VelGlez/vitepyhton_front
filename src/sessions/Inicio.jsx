@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { useAuth } from '../route/context/UsersContext';
+import { Tokens_expressjs } from '../hooks/Tokens_expressjs';
 
 export default function Inicio() {
     const { logoutss } = useAuth();
@@ -30,6 +31,8 @@ export default function Inicio() {
         }
 
     }
+
+    Tokens_expressjs()
     return (
         <>
 

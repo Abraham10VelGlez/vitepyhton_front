@@ -1,19 +1,19 @@
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react'
+// import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react'
 import axios from "axios";
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 export const Tokens = () => {
 
-    const [jsonwebtoken, setjwt] = useState(null);
+    // const [jsonwebtoken, setjwt] = useState(null);
    
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     useEffect(() => {
         // Código del efecto de funcion asincrona   
         const validation_jsontoken = async () => {
             try {
-                const apiUrl = import.meta.env.VITE_URL_BACKEND;
-                const response = await axios.get(`${apiUrl}/loggin_token`, {
+                const apiUrl = import.meta.env.VITE_URL_BACKEND;                
+                const response = await axios.get(`${apiUrl}loggin_token`, {
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -26,7 +26,7 @@ export const Tokens = () => {
                     console.log("Autentificado");
                 } else {
                     console.log("No autentificado");
-                    fn_flag()
+                    // fn_flag()
 
 
                 }
