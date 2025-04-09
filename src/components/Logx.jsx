@@ -1,11 +1,12 @@
 import React from 'react';
 import '../css/intro.css'
 import Spinneravg from './Spinneravg';
-// import Formx from './Formx';
-import Formx_express from './Formx_express';
-import { Test_conexion_expressjs_servidor } from '../hooks/Test_conexion_expressjs_servidor';
+import Formx from './Formx';
+// import Formx_express from './Formx_express';
+// import { Test_conexion_expressjs_servidor } from '../hooks/Test_conexion_expressjs_servidor';
 function Logx() {
     // Test_conexion_expressjs_servidor() //expressjs
+    
 
     return (
         <>
@@ -38,7 +39,8 @@ function Logx() {
                         <div className="card rounded-box grid grow place-items-center">
                             <div className="card bg-base-300">
                                 <div className="card-body">
-                                    <Formx_express></Formx_express>
+                                    {/* <Formx_express></Formx_express> */}
+                                    <Formx></Formx>
                                 </div>
                             </div>
                         </div>

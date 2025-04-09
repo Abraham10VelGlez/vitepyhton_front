@@ -4,12 +4,14 @@ import Fondo from '../background/Fondo';
 import Protector_ from './protector';
 import Cookies from 'js-cookie';
 import Inicio from '../sessions/Inicio';
+import Fondopython from '../background/Fondopython';
 //BrowserRouter as Router
 export default function Navigatep() {
     return (
         /*<Router>*/
         <Routes>
-            <Route path="/" index element={<Fondo />} />
+            {/* <Route path="/" index element={<Fondo />} /> */}
+            <Route path="/" index element={<Fondopython />} />
             <Route path="/wolrd" element={<Home />} />
 
             <Route element={<Protector_ />}>
