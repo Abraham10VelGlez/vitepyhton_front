@@ -1,8 +1,8 @@
 
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import axios from "axios";
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 export const Test_conexion_expressjs_servidor = () => {
 
     const [jsonwebtoken, setjwt] = useState(false);
@@ -13,7 +13,7 @@ export const Test_conexion_expressjs_servidor = () => {
         const validation_server_ = async () => {
             try {
                 const apiUrl = import.meta.env.VITE_URL_BACKEND_EXPRESSJS_API_SERVER;
-                const response = await axios.get(`${apiUrl}jwt`, {
+                const response = await axios.get(`${apiUrl}login`, {
                     headers: {
                         'Content-Type': 'application/json'
                     },
@@ -71,6 +71,9 @@ export const Test_conexion_expressjs_servidor = () => {
         }
         validation_server_();
         validation_server_post()
+
+
+
 
     }, []);
 

@@ -1,15 +1,11 @@
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Fondo from '../background/Fondo';
 import Protector_ from './protector';
-import Cookies from 'js-cookie';
 import Inicio from '../sessions/Inicio';
 import Fondopython from '../background/Fondopython';
-//BrowserRouter as Router
 export default function Navigatep() {
     return (
-        /*<Router>*/
         <Routes>
+            {/* esta ruta es para la conexion con expressjs */}
             {/* <Route path="/" index element={<Fondo />} /> */}
             <Route path="/" index element={<Fondopython />} />
             <Route path="/wolrd" element={<Home />} />
@@ -23,7 +19,6 @@ export default function Navigatep() {
             {/* comodin para dar por defecto la pagina que no sirve */}
             <Route path="*" element={<NotFound></NotFound>} />
         </Routes>
-        /*</Router>*/
     );
 }
 function Home() {
