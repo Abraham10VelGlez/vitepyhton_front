@@ -10,11 +10,13 @@ export default function Navigatep() {
             <Route path="/" index element={<Fondopython />} />
             <Route path="/wolrd" element={<Home />} />
 
-            <Route element={<Protector_ />}>
-                {/* SIGUIENTE PASO ES ENCAPSULAR LA APP PARA QUE SI DETECTA CAMBIOS ESTA REDIRIGA AL INICIO DE SESSION O SI NO  QUE DESLOGEE AL USUARIO*/}
+            <Route element={<Protector_ allowedRoles={[1]} />}>                
                 <Route path='/pythonavg' element={<Inicio />} />
                 <Route path='/pythoniza' element={<Session_tempral />} />
+            </Route>
 
+            <Route element={<Protector_ allowedRoles={[100]} />}>            
+                <Route path='/pyadminavg' element={<Session_tempral_admin />} />
             </Route>
             {/* comodin para dar por defecto la pagina que no sirve */}
             <Route path="*" element={<NotFound></NotFound>} />
@@ -24,12 +26,12 @@ export default function Navigatep() {
 function Home() {
     return (<><p> 🐍 VITE + PYTHON, BIENVENIDO CHIKO PYTHON, ruta libre 🐍 </p></>);
 }
-
 function Session_tempral() {
     return (<><p> 🐍 VITE + FLASK PYTHON, BIENVENIDO CHIKO PYTHON, SESSION COMPLETA, RUTA PROTEGIDA 🐍 </p></>);
 }
-
-
+function Session_tempral_admin() {
+    return (<><p> 🐍 VITE + FLASK PYTHON, BIENVENIDO CHIKO PYTHON ADMINISTRADOR, SESSION COMPLETA, RUTA PROTEGIDA 🐍 </p></>);
+}
 function NotFound() {
     return (<><p> 🐍 ESTA PAGINA NO EXISTE CHIKO PYTHON 🐍 </p></>);
 }

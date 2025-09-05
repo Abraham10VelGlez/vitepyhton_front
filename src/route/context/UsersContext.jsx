@@ -1,22 +1,18 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import Cookies from 'js-cookie';
-
 export const UsersContext = createContext(null);
 export const UsersProvider = ({ children }) => {
-
     //     Beneficios de este enfoque
     // No necesitas acceder a cookies directamente desde todos lados.
-
     // Toda la lógica de autenticación está centralizada.
-
-    // Puedes usar tokenuser, loginss(), logoutss() desde cualquier parte con useAuth().
-
-
+    // Puedes usar tokenuser, loginss(), logoutss() desde cualquier parte con useAuth(). PARA VALIDAR AUTENTICACION Y CIERRE DE LA APP
     const [tokenuser, setTokenuser] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const cookieToken = Cookies.get('jwt_avg');
+        // console.log(cookieToken);
+        
         if (cookieToken) {
             setTokenuser(cookieToken);
         }
@@ -28,6 +24,8 @@ export const UsersProvider = ({ children }) => {
     };
 
     const loginss = (newToken) => {
+        console.log(newToken);
+        
         Cookies.set('jwt_avg', newToken, { expires: 25 / (24 * 60) });
         sessionStorage.setItem('jwt_avg', newToken);
         // Cookies.set('jwt_avg', json.data.tokenx, { expires: 25 / (24 * 60) }); //25min

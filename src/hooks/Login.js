@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import * as yup from "yup";
 import axios from "axios";
 import { useFormik } from "formik";
@@ -6,10 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 export default function Login() {
     const navigate = useNavigate();
-    //const { user, setUser, clearUser } = useContext(UsersContext);
-    // Estado para manejar la carga
     const [loaddatax, setData] = useState(false);
-    // Definir el esquema de validación con Yup
     const validationSchema = yup.object({
         u: yup
             .string()
@@ -28,7 +25,6 @@ export default function Login() {
             //.max(15, "La contraseña solo puede tener maximo 15 caracteres")
             .required("El campo de contraseña es obligatorio"),
     });
-    // Formik para manejar el formulario
     const formik_validatelogon = useFormik({
         initialValues: {
             u: "",
@@ -36,7 +32,6 @@ export default function Login() {
         },
         validationSchema,
         onSubmit: async (values) => {
-            //console.log('Enviando formulario:', values);
             setData(true);
             const apiUrl = import.meta.env.VITE_URL_APIPYTHON
             try {
@@ -77,12 +72,13 @@ export default function Login() {
         },
     });
     const beginsession_newcode = (json) => {
+        // console.log(json);        
         Cookies.set('jwt_avg', json.data.token, { expires: 1 }); // expira en 1 día        
         sessionStorage.setItem('jwt_avg', json.data.token); // almacenar en sesion        
         setData(false);
-        console.log(json.data.url);        
-        navigate(json.data.url, { replace: true });
-
+        // console.log(json.data.url);
+        // navigate(json.data.url, { replace: true });
+        navigate('/pythonavg');
     };
     return {
         formik_validatelogon,
